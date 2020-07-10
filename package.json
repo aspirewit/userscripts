@@ -1,0 +1,23 @@
+{
+  "name": "userscripts",
+  "version": "1.0.0",
+  "description": "Tampermonkey userscripts",
+  "repository": "https://github.com/aspirewit/userscripts",
+  "author": "Richard Li",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "build": "NODE_ENV=production webpack",
+    "prewatch": "npm run clean",
+    "watch": "NODE_ENV=development webpack -w"
+  },
+  "devDependencies": {
+    "terser-webpack-plugin": "^3.0.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "ramda": "^0.27.0"
+  }
+}
