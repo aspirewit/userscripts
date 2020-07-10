@@ -2,7 +2,7 @@
 // @name         Copy Jira issue links
 // @namespace    https://github.com/aspirewit
 // @homepage     https://github.com/aspirewit/userscripts
-// @updateURL    https://raw.githubusercontent.com/aspirewit/userscripts/master/src/scripts/copyJiraIssueLinks.js
+// @updateURL    https://raw.githubusercontent.com/aspirewit/userscripts/master/dist/copyJiraIssueLinks.js
 // @version      0.1.0
 // @description  Copy Jira issue links
 // @author       Richard Li
