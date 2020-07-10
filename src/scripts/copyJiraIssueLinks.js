@@ -14,15 +14,22 @@
 // ==/UserScript==
 import waitFor from 'utils/waitFor'
 
-const $ = window.$
+const { $ } = window
+const originUrl = window.location.origin
 const icon = GM_getResourceURL('icon')
+const html = `<div id="ghx-copy-links"><img src="${icon}" /></div>`
+
+const generateLink = function() {
+  const key = $(this).attr('data-issue-key')
+  const link = `${originUrl}/browse/${key}`
+  return link
+}
 
 const copyLinks = () => {
-  const links = $('.ghx-selected').map(function() {
-    const key = $(this).attr('data-issue-key')
-    const url = `${window.location.origin}/browse/${key}`
-    return url
-  }).get().join('\n')
+  const links = $('.ghx-selected')
+    .map(generateLink)
+    .get()
+    .join('\n')
 
   GM_setClipboard(links)
 }
@@ -32,7 +39,7 @@ const createCopyButton = () => {
     return
   }
 
-  $('<div id="ghx-copy-links" />')
+  $(html)
     .css({
       alignItems: 'center',
       cursor: 'pointer',
@@ -42,12 +49,6 @@ const createCopyButton = () => {
     })
     .click(copyLinks)
     .insertAfter('#ghx-share')
-
-  $('<img />')
-    .css({
-      content: `url(${icon})`,
-    })
-    .appendTo('#ghx-copy-links')
 }
 
 $(() => waitFor(() => $('#ghx-share').length, createCopyButton))
