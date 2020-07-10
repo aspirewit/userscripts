@@ -18,6 +18,11 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    modules: [
+      path.resolve(__dirname, 'src'),
+    ]
+  },
   optimization: {
     minimize: true,
     minimizer: [

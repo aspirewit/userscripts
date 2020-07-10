@@ -12,7 +12,7 @@
 // @require      https://code.jquery.com/jquery-3.5.1.min.js
 // @resource     icon   https://user-images.githubusercontent.com/47729970/86877950-8309f600-c11a-11ea-891c-d7a43e78742b.png
 // ==/UserScript==
-import waitFor from '../utils/waitFor'
+import waitFor from 'utils/waitFor'
 
 const $ = window.$
 const icon = GM_getResourceURL('icon')
