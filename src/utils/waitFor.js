@@ -1,5 +1,5 @@
 const waitFor = (isReady, afterReady, options = {}) => {
-  const { maxAttempts = 5, milliseconds = 1000  } = options
+  const { maxAttempts = 5, milliseconds = 1000 } = options
   let attempts = 0
 
   const timer = setInterval(() => {
@@ -8,7 +8,7 @@ const waitFor = (isReady, afterReady, options = {}) => {
     }
     attempts += 1
 
-    if(isReady()) {
+    if (isReady()) {
       clearInterval(timer)
       afterReady()
     }

@@ -19,18 +19,14 @@ const originUrl = window.location.origin
 const icon = GM_getResourceURL('icon')
 const html = `<div id="ghx-copy-links"><img src="${icon}" /></div>`
 
-const generateLink = function() {
+const generateLink = function () {
   const key = $(this).attr('data-issue-key')
   const link = `${originUrl}/browse/${key}`
   return link
 }
 
 const copyLinks = () => {
-  const links = $('.ghx-selected')
-    .map(generateLink)
-    .get()
-    .join('\n')
-
+  const links = $('.ghx-selected').map(generateLink).get().join('\n')
   GM_setClipboard(links)
 }
 

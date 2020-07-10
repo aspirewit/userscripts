@@ -7,7 +7,10 @@ const scriptsPath = path.join(__dirname, 'src/scripts')
 
 const entry = R.pipe(
   fs.readdirSync,
-  R.map(filename => [filename.replace('.js', ''), path.join(scriptsPath, filename)]),
+  R.map((filename) => [
+    filename.replace('.js', ''),
+    path.join(scriptsPath, filename),
+  ]),
   R.fromPairs
 )(scriptsPath)
 
@@ -19,9 +22,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
-    modules: [
-      path.resolve(__dirname, 'src'),
-    ]
+    modules: [path.resolve(__dirname, 'src')],
   },
   optimization: {
     minimize: true,
