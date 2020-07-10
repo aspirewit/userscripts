@@ -13,7 +13,6 @@ const entry = R.pipe(
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  devtool: 'inline-source-map',
   entry,
   output: {
     filename: '[name].js',
